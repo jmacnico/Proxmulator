@@ -1,9 +1,11 @@
-Proxmulator
+ï»¿Proxmulator
 ===========
 
 
 TODO:
 
-Validação Mensagens;
-Trigger Compostos
-Transformação Mensagens.
+ValidaÃ§Ã£o Mensagens.
+
+Trigger Compostos.
+
+TransformaÃ§Ã£o Mensagens.
