@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="XmlViewer">
+</Property><Property Name="Solution File" Value="C:\Mercurial\GitHub\Proxmulator\XmlViewer\XmlViewer.sln">
+</Property><Property Name="Date" Value="quarta-feira, 24 de Outubro de 2012">
+</Property><Property Name="Time" Value="14:15">
+</Property></Properties><Event ErrorLevel="0" Project="XmlViewer" Source="XmlViewer\XmlViewer.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="XmlViewer" Source="XmlViewer\XmlViewer.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="XmlViewer.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="XmlViewer.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="XmlViewer" Source="XmlViewer\XmlViewer.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

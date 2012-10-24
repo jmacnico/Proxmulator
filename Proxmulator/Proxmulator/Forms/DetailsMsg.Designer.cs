@@ -32,7 +32,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tbRaw = new System.Windows.Forms.TextBox();
-            this.xmlEditor1 = new XmlEditor();
+            this.xmlSend = new XmlEditor.XmlViewer();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -51,7 +51,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.xmlEditor1);
+            this.tabPage1.Controls.Add(this.xmlSend);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -83,15 +83,13 @@
             this.tbRaw.Size = new System.Drawing.Size(978, 541);
             this.tbRaw.TabIndex = 0;
             // 
-            // xmlEditor1
+            // xmlSend
             // 
-            this.xmlEditor1.AllowXmlFormatting = false;
-            this.xmlEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xmlEditor1.Location = new System.Drawing.Point(3, 3);
-            this.xmlEditor1.Name = "xmlEditor1";
-            this.xmlEditor1.ReadOnly = false;
-            this.xmlEditor1.Size = new System.Drawing.Size(978, 541);
-            this.xmlEditor1.TabIndex = 0;
+            this.xmlSend.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xmlSend.Location = new System.Drawing.Point(3, 3);
+            this.xmlSend.Name = "xmlSend";
+            this.xmlSend.Size = new System.Drawing.Size(978, 541);
+            this.xmlSend.TabIndex = 0;
             // 
             // DetailsMsg
             // 
@@ -115,6 +113,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox tbRaw;
-        private XmlEditor xmlEditor1;
+        private XmlEditor.XmlViewer xmlSend;
     }
 }

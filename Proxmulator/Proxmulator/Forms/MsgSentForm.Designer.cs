@@ -30,14 +30,14 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.xmlSent = new XmlEditor();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.xmlReceived = new XmlEditor();
             this.label1 = new System.Windows.Forms.Label();
             this.tbUrl = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxNpu = new System.Windows.Forms.CheckBox();
+            this.xmlSent = new XmlEditor.XmlViewer();
+            this.xmlReceived = new XmlEditor.XmlViewer();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -67,16 +67,6 @@
             this.tabPage1.Text = "Sent";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // xmlSent
-            // 
-            this.xmlSent.AllowXmlFormatting = false;
-            this.xmlSent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xmlSent.Location = new System.Drawing.Point(3, 3);
-            this.xmlSent.Name = "xmlSent";
-            this.xmlSent.ReadOnly = false;
-            this.xmlSent.Size = new System.Drawing.Size(955, 443);
-            this.xmlSent.TabIndex = 0;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.xmlReceived);
@@ -87,16 +77,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Received";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // xmlReceived
-            // 
-            this.xmlReceived.AllowXmlFormatting = false;
-            this.xmlReceived.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xmlReceived.Location = new System.Drawing.Point(3, 3);
-            this.xmlReceived.Name = "xmlReceived";
-            this.xmlReceived.ReadOnly = false;
-            this.xmlReceived.Size = new System.Drawing.Size(955, 443);
-            this.xmlReceived.TabIndex = 0;
             // 
             // label1
             // 
@@ -144,6 +124,22 @@
             this.cbxNpu.TabIndex = 5;
             this.cbxNpu.UseVisualStyleBackColor = true;
             // 
+            // xmlSent
+            // 
+            this.xmlSent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xmlSent.Location = new System.Drawing.Point(3, 3);
+            this.xmlSent.Name = "xmlSent";
+            this.xmlSent.Size = new System.Drawing.Size(955, 443);
+            this.xmlSent.TabIndex = 0;
+            // 
+            // xmlReceived
+            // 
+            this.xmlReceived.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xmlReceived.Location = new System.Drawing.Point(3, 3);
+            this.xmlReceived.Name = "xmlReceived";
+            this.xmlReceived.Size = new System.Drawing.Size(955, 443);
+            this.xmlReceived.TabIndex = 0;
+            // 
             // MsgSentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,7 +171,7 @@
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cbxNpu;
-        private XmlEditor xmlSent;
-        private XmlEditor xmlReceived;
+        private XmlEditor.XmlViewer xmlSent;
+        private XmlEditor.XmlViewer xmlReceived;
     }
 }

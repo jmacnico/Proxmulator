@@ -28,7 +28,7 @@ namespace Proxmulator.Forms
         private void FillForm()
         {
             tbRaw.Text = _message.Payload;
-            xmlEditor1.Text = _message.xml.OuterXml;
+            xmlSend.Text = _message.xml.OuterXml;
         }
 
 
