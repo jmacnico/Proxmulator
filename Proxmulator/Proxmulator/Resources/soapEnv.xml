@@ -1,0 +1,6 @@
+﻿<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" >
+  <soapenv:Header/>
+  <soapenv:Body>
+    {0}
+  </soapenv:Body>
+</soapenv:Envelope>

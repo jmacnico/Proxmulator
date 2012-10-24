@@ -1,0 +1,24 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://telecom.pt/ptMsgInt/2009/12/16" xmlns:ptc="http://telecom.pt/ptCommonMsg">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<ns:message>
+			<HeaderRequest >
+				<npu>###NPU##</npu>
+				##CORR_NPU##
+				<creationTime>##DATE##</creationTime>
+				
+				<processId>##PROC_ID##</processId>
+				<Credentials>
+					<systemCode>22</systemCode>
+				</Credentials>
+			</HeaderRequest>
+			<msgData>
+				<ptc:genericBody>
+					<order>
+					##AUX##
+					</order>
+				</ptc:genericBody>
+			</msgData>
+		</ns:message>
+	</soapenv:Body>
+</soapenv:Envelope>

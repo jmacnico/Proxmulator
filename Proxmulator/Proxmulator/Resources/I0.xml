@@ -1,0 +1,24 @@
+﻿HTTP/1.1 200 OK
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" >
+  <soapenv:Header>
+    <ns0:HeaderReply xmlns:ns0="urn://ptp.pt/SharedResources/SchemaDefinitions/EAIMessaging/SOAPHeader">
+      <ns0:npu>0022SRVSRVGMSN201102011530000000000000000000000000</ns0:npu>
+      <ns1:Status xmlns:ns1="urn://ptp.pt/SharedResources">
+        <ns1:eCodes>
+          <ns1:eCode>I0</ns1:eCode>
+          <ns1:eDescription>Mensagem recebida com sucesso em TIBCO.</ns1:eDescription>
+          <ns1:eActor>25</ns1:eActor>
+        </ns1:eCodes>
+        <ns1:eNative>
+          <ns1:eCode>BW-I0000</ns1:eCode>
+          <ns1:eDescription>Message Store in Async Framework</ns1:eDescription>
+          <ns1:eActor>25</ns1:eActor>
+        </ns1:eNative>
+      </ns1:Status>
+    </ns0:HeaderReply>
+  </soapenv:Header>
+  <soapenv:Body>
+   
+  </soapenv:Body>
+</soapenv:Envelope>

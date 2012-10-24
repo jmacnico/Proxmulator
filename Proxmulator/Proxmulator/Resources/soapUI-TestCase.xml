@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="{0}" searchProperties="true" id="0d205e93-f411-4bf1-ac01-2663ca0f5b9c" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+    {1}
+  <con:properties/>
+</con:testCase>

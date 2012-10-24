@@ -1,0 +1,31 @@
+﻿<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://telecom.pt/ptMsgInt/2009/12/16">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <internalReplyTo>
+      <ParametrosOperacao>
+        <npu>{0}</npu>
+        <CorrelationNPU>{1}</CorrelationNPU>
+        <DataOperacao>2012-09-21T17:40:02.545+01:00</DataOperacao>
+      </ParametrosOperacao>
+      <StatusOperacaoSolicitada>
+        <eCode>
+          <eCode>I2</eCode>
+          <eDescription>OK</eDescription>
+          <eActor>88</eActor>
+        </eCode>
+        <destinationStatus>
+          <eCode>
+            <eCode>I2</eCode>
+            <eDescription>OK</eDescription>
+            <eActor>88</eActor>
+          </eCode>
+          <eNative>
+            <eCode>I2</eCode>
+            <eDescription>OK</eDescription>
+            <eActor>88</eActor>
+          </eNative>
+        </destinationStatus>
+      </StatusOperacaoSolicitada>
+    </internalReplyTo>
+  </soapenv:Body>
+</soapenv:Envelope>
