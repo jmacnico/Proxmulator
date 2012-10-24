@@ -14,6 +14,7 @@ namespace XmlEditor
         {
             InitializeComponent();
             txtEditor.SetHighlighting("XML");
+
         }
 
 
