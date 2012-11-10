@@ -17,12 +17,12 @@ namespace Proxmulator.Forms
         public Preferences()
         {
             InitializeComponent();
-            
-            Load();
+
+            LoadFields();
         }
 
 
-        private void Load()
+        private void LoadFields()
         {
             tbPort.Text = Configuration.ListenerPort.ToString();
             tbUrl.Text = Configuration.UrlReturn;
@@ -40,7 +40,7 @@ namespace Proxmulator.Forms
 
             foreach (var action in Configuration.SoapActions)
             {
-                dgSoapAction.Rows.Add(action.Key, action.Value);
+                dgSoapAction.Rows.Add(action.InterfaceToInvoke, action.Operation, action.Action);
             }
         }
 
@@ -71,10 +71,11 @@ namespace Proxmulator.Forms
             {
                 var interf = row.Cells["Interface"].Value != null ? row.Cells["Interface"].Value.ToString() : null;
                 var action = row.Cells["SoapAction"].Value != null ? row.Cells["SoapAction"].Value.ToString() : null;
+                var oper = row.Cells["Oper"].Value != null ? row.Cells["Oper"].Value.ToString() : null;
 
                 if (interf == null || action == null) continue;
 
-                Configuration.SoapActions.Add(new KeyValueInfo(interf, action));
+                Configuration.SoapActions.Add(new SoapAction(interf, oper, action));
             }
 
 

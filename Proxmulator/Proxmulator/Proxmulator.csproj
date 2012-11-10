@@ -11,7 +11,8 @@
     <RootNamespace>Proxmulator</RootNamespace>
     <AssemblyName>Proxmulator</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>\\ptsi-102261\myapplications\Proxmulator\</PublishUrl>
@@ -27,8 +28,9 @@
     <PublisherName>PTSI</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>34</ApplicationRevision>
-    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>29</ApplicationRevision>
+    <ApplicationVersion>2.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -95,18 +97,23 @@
     <Compile Include="Core\Listener.cs" />
     <Compile Include="Core\Logger.cs" />
     <Compile Include="Core\Messaging.cs" />
+    <Compile Include="Core\MyExtensions.cs" />
     <Compile Include="Core\Processer.cs" />
     <Compile Include="Core\ProcessProject.cs" />
     <Compile Include="Core\ProcessRequestSignal.cs" />
     <Compile Include="Core\SoapUI.cs" />
+    <Compile Include="Entities\Condition.cs" />
     <Compile Include="Entities\Configuration.cs" />
     <Compile Include="Entities\DBConnection.cs" />
+    <Compile Include="Entities\Trigger.cs" />
     <Compile Include="Entities\KeyValueInfo.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\OperationName.cs" />
     <Compile Include="Entities\Project.cs" />
     <Compile Include="Entities\ProjectInstance.cs" />
     <Compile Include="Entities\TestStep.cs" />
+    <Compile Include="Entities\TriggerCustom.cs" />
+    <Compile Include="Entities\TriggerOperation.cs" />
     <Compile Include="Forms\ConnectionDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +144,42 @@
     <Compile Include="Forms\ProjectForm.Designer.cs">
       <DependentUpon>ProjectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TriggerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TriggerForm.Designer.cs">
+      <DependentUpon>TriggerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControls\Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserControls\Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControls\ConditionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UserControls\ConditionControl.Designer.cs">
+      <DependentUpon>ConditionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControls\ReceivedMsgControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UserControls\ReceivedMsgControl.Designer.cs">
+      <DependentUpon>ReceivedMsgControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControls\TestStepControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UserControls\TestStepControl.Designer.cs">
+      <DependentUpon>TestStepControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControls\TreeVewProject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UserControls\TreeVewProject.Designer.cs">
+      <DependentUpon>TreeVewProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +188,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +219,28 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProjectForm.resx">
       <DependentUpon>ProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TriggerForm.resx">
+      <DependentUpon>TriggerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserControls\Loading.resx">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserControls\ConditionControl.resx">
+      <DependentUpon>ConditionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserControls\ReceivedMsgControl.resx">
+      <DependentUpon>ReceivedMsgControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserControls\TestStepControl.resx">
+      <DependentUpon>TestStepControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserControls\TreeVewProject.resx">
+      <DependentUpon>TreeVewProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\I0.xml" />
     <EmbeddedResource Include="Resources\sample.xml" />
@@ -231,6 +301,19 @@
       <Project>{3343BB8A-48CB-44D1-9990-E88E5C49CB67}</Project>
       <Name>XmlEditor</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Images\bullet_triangle_green.png" />
+    <Content Include="Resources\Images\document_into.png" />
+    <Content Include="Resources\Images\fire.png" />
+    <Content Include="Resources\Images\folders.png" />
+    <Content Include="Resources\Images\folder_edit.png" />
+    <Content Include="Resources\Images\media_pause.png" />
+    <Content Include="Resources\Images\save_as.png" />
+    <Content Include="Resources\Images\stop.png" />
+    <Content Include="Resources\prettyPrint.xslt">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

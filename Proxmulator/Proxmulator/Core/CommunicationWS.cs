@@ -78,11 +78,17 @@ namespace Proxmulator.Core
        
 
 
-        public static string GetSoapAction(string interfaceToInvoke)
+        public static string GetSoapAction(string interfaceToInvoke, string operation = null)
         {
-            if (Configuration.SoapActions.Any(a => a.Key == interfaceToInvoke))
+            if (Configuration.SoapActions.Any(a => a.InterfaceToInvoke == interfaceToInvoke))
             {
-                return Configuration.SoapActions.FirstOrDefault(a => a.Key == interfaceToInvoke).Value;
+                if (Configuration.SoapActions.Any(a => a.Operation == operation))
+                {
+
+                    return Configuration.SoapActions.FirstOrDefault(a => a.InterfaceToInvoke == interfaceToInvoke && a.Operation == operation).Action;
+                }
+
+                return Configuration.SoapActions.FirstOrDefault(a => a.InterfaceToInvoke == interfaceToInvoke).Action;
             }
 
 
@@ -110,8 +116,19 @@ namespace Proxmulator.Core
                 index += 4;
             }
 
+
+            var charToReplace = new string[] { "818", "78a", "6e5", "f9c", "\r", "\n" };
+
+
             str = str.Remove(0, index);
             str = str.TrimEnd('\r', '\n', '0');
+
+            for (int i = 0; i < charToReplace.Length; i++)
+            {
+                str = str.Replace(charToReplace[i], "");
+
+            }
+
 
             var end = str.IndexOf("</soapenv:Envelope>");
 

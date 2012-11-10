@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Proxmulator.Entities;
+using Proxmulator.Extras;
 
 namespace Proxmulator.Core
 {
@@ -13,7 +14,7 @@ namespace Proxmulator.Core
         {
             var i2 = Utils.GetResourceTextFile("GR_I2.xml");
 
-            var npu = createNpu("GENREPIRTO");
+            var npu = createNpu("GENREPIRTO", "0025");
             i2 = string.Format(i2, npu, msg.NPU);
 
             var msgSent = new MessageSent();
@@ -43,7 +44,7 @@ namespace Proxmulator.Core
             messageSent.Msg = msg;
             messageSent.Send = bodyMsg;
 
-            CommunicationWS.SendMessage(messageSent, url, CommunicationWS.GetSoapAction(msg.InterfaceToInvoke));
+            CommunicationWS.SendMessage(messageSent, url, CommunicationWS.GetSoapAction(msg.InterfaceToInvoke, msg.Operation));
 
             return messageSent;
         }
@@ -69,7 +70,7 @@ namespace Proxmulator.Core
             }
 
             var nNpu = Utils.SelectNode(step.Message.xml, "npu");
-            nNpu.InnerText = Messaging.createNpu(step.Message.Operation);
+            nNpu.InnerText = Messaging.createNpu(step.Message.Operation, step.Message.System);
 
 
             step.Message.Payload = step.Message.xml.OuterXml;
@@ -85,7 +86,7 @@ namespace Proxmulator.Core
         {
             var e0 = Utils.GetResourceTextFile("GR_E0.xml");
 
-            var npu = createNpu("GENREPIRTO");
+            var npu = createNpu("GENREPIRTO", "0025");
             e0 = string.Format(e0, npu, msg.NPU);
 
             var msgSent = new MessageSent();
@@ -101,9 +102,9 @@ namespace Proxmulator.Core
 
 
 
-        internal static string createNpu(string operation)
+        internal static string createNpu(string operation, string system = "0022")
         {
-            var npu = string.Format("0022{0}{1}0000000000000000000", operation, DateTime.Now.ToString("yyyyMMddHHmmssfff"));
+            var npu = string.Format("{0}{1}{2}0000000000000000000",system, operation, DateTime.Now.ToString("yyyyMMddHHmmssfff"));
 
             return npu;
         }

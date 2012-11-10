@@ -13,6 +13,8 @@ namespace Proxmulator.Entities
         [XmlIgnore]
         public List<MessageInfo> Received { get; set; }
 
+        [XmlIgnore]
+        public bool Active { get; set; }
 
         public Project Project { get; set;}
 

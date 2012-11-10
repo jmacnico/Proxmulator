@@ -8,6 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using Proxmulator.Entities;
 using Proxmulator.Core;
+using Proxmulator.Forms.UserControls;
+using System.Threading;
+using Proxmulator.Extras;
 
 namespace Proxmulator.Forms
 {
@@ -45,7 +48,7 @@ namespace Proxmulator.Forms
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            _step.Message.Payload = Utils.PrettyPrint(xmlSent.Text);
+            _step.Message.Payload = xmlSent.Text;
             _step.Sent = true;
 
             if (cbxNpu.Checked)
@@ -59,6 +62,8 @@ namespace Proxmulator.Forms
                 xmlSent.Text = Utils.PrettyPrint(_step.Message.Payload);
             }
 
+            ShowLoading.Show();
+            
 
             var msgSent = Messaging.SendMsg(_step.Message, tbUrl.Text);
 
@@ -67,7 +72,12 @@ namespace Proxmulator.Forms
 
             tabControl1.SelectedIndex = 1;
 
+
+            ShowLoading.Hide();
         }
+
+
+       
 
        
     }

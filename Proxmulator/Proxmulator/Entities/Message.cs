@@ -24,8 +24,26 @@ namespace Proxmulator.Entities
         public DateTime ReceivedDatetime { get; set; }
         public string InterfaceToInvoke { get; set; }
 
+
         [XmlIgnore]
-        public string Payload { get; set; }
+        public string System
+        {
+            get { return NPU.Substring(0, 4); }
+        }
+
+        private string _Payload;
+
+        [XmlIgnore]
+        public string Payload
+        {
+            get { return _Payload; }
+            set
+            {
+                _Payload = value;
+                _xml = null;
+
+            }
+        }
 
         [XmlElement("Payload")]
         public XmlCDataSection CDataPayLoad
@@ -41,8 +59,9 @@ namespace Proxmulator.Entities
             }
         }
 
-
+        [XmlIgnore]
         private XmlDocument _xml;
+
         [XmlIgnore]
         public XmlDocument xml
         {
@@ -50,14 +69,25 @@ namespace Proxmulator.Entities
             {
                 if (_xml == null && !string.IsNullOrEmpty(this.Payload))
                 {
-                    _xml = new XmlDocument();
-                    _xml.LoadXml(this.Payload);
+                    try
+                    {
+                        _xml = new XmlDocument();
+                        _xml.LoadXml(this.Payload);
+                        return _xml;
+                    }
+                    catch (Exception)
+                    {
+                        return null;
+                    }
                 }
 
                 return _xml;
             }
+            set
+            {
+                _xml = value;
+            }
 
-            set { _xml = value; }
         }
 
 
@@ -115,11 +145,6 @@ namespace Proxmulator.Entities
             }
 
             msg.Payload = sb.ToString().Trim('\0');
-
-            var xml = new XmlDocument();
-            xml.LoadXml(msg.Payload);
-
-            msg.xml = xml;
 
 
             return msg;
@@ -211,6 +236,8 @@ namespace Proxmulator.Entities
             return null;
 
         }
+
+
 
 
 

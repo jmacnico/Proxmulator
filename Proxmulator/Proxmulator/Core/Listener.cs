@@ -7,6 +7,8 @@ using System.Net.Sockets;
 using System.Net;
 using System.Xml;
 using System.Threading;
+using Proxmulator.Extras;
+using System.IO;
 
 namespace Proxmulator.Core
 {
@@ -39,10 +41,8 @@ namespace Proxmulator.Core
             _ThreadProcesser = new Thread(_Processer.Process);
             _ThreadProcesser.Start();
 
-
-            _i0Bytes = Encoding.ASCII.GetBytes(_i0);
+            _i0Bytes = Encoding.UTF8.GetBytes(_i0);
             _listener = new TcpListener(IPAddress.Loopback, Configuration.ListenerPort);
-
             _listener.Start(50);
 
             Logger.Log("Listener started on " + Configuration.ListenerPort);
@@ -81,40 +81,61 @@ namespace Proxmulator.Core
         {
             try
             {
+                const int BUFFER_SIZE = 5000;
                 var client = obj as TcpClient;
-                
+
+               
                 var stream = client.GetStream();
+                var http = stream;
+
+                var request = new WebClient();
+                
+                
+
+
                 int bytesRead = 0;
-                var buffer = new Byte[client.ReceiveBufferSize];
+                var buffer = new byte[BUFFER_SIZE];
                 string data = "";
-                string allData = "";
+                
                 var sb = new StringBuilder();
+
+
+                var retries = 0;
 
                 do
                 {
                     if (client.Available > 0)
                     {
-                        bytesRead = stream.Read(buffer, 0, buffer.Length);
+                        bytesRead = http.Read(buffer, 0, BUFFER_SIZE);
+
+                        if (bytesRead == 0)
+                            break;
+                        
                         data = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                         sb.Append(data);
-
-                        allData = sb.ToString();
-
+                        
+                        buffer = new byte[BUFFER_SIZE];
                     }
                     else
                     {
-                        Thread.Sleep(30);
+                        Thread.Sleep(100);
+                        retries++;
+
+                        if (retries > 20)
+                        {
+                            break;
+                        }
+
                     }
 
-
-                } while ((!allData.Contains("</soapenv:Envelope>")) && client.Connected);
+                } while ((!data.Contains("</soapenv:Envelope>")) && client.Connected );
 
                 stream.Write(_i0Bytes, 0, _i0Bytes.Length);
 
                 stream.Close();
                 client.Close();
 
-                var msg = MessageInfo.LoadFromString(allData);
+                var msg = MessageInfo.LoadFromString(sb.ToString());
 
                 Logger.Log("Message received:" + msg.NPU);
 

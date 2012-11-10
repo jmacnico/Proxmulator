@@ -2,24 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Proxmulator.Entities.Interfaces;
+using System.Xml.Serialization;
 
 namespace Proxmulator.Entities
 {
 
-    public enum TriggerType { None = 1, Operation = 2 };
-
-    public class TestStep
+    public class TestStep 
     {
         public int Index { get; set; }
         public string Name { get; set; }
-        public TriggerType Trigger { get; set; }
+
+        [XmlElement(typeof(TriggerOperation))]
+        [XmlElement(typeof(TriggerNone))]
+        [XmlElement(typeof(TriggerCustom))]
+        public Trigger Trigger { get; set; }
+        
         public MessageInfo Message { get; set; }
         public string UrlResponse { get; set; }
+
+        [XmlIgnore]
         public bool Sent { get; set; }
 
         public TestStep()
         {
             Sent = false;
+            Trigger = new TriggerNone();
         }
 
 
@@ -33,11 +41,6 @@ namespace Proxmulator.Entities
 
             return false;
         }
-
-
-
-
-
 
 
 

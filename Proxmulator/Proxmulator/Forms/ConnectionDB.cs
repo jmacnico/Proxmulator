@@ -42,7 +42,7 @@ namespace Proxmulator.Forms
         }
 
 
-        private void Load(DBConnection c)
+        private void LoadFileds(DBConnection c)
         {
             tbName.Text = c.Name;
             tbHost.Text = c.Host;
@@ -147,7 +147,7 @@ namespace Proxmulator.Forms
                 }
                 else
                 {
-                    Load(item);
+                    LoadFileds(item);
                 }
             }
             

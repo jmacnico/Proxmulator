@@ -20,7 +20,7 @@ namespace Proxmulator.Entities
         {
             string oradb = "Data Source=(DESCRIPTION="
                         + "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST={0})(PORT={1})))"
-                        + "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME={2})));"
+                        + "(CONNECT_DATA=(SERVER=DEDICATED)(SID={2})));"
                         + "User Id={3};Password={4};";
             return string.Format(oradb, Host, Port, SID, User, Password);
         }

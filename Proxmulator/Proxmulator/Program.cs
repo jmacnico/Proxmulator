@@ -8,6 +8,8 @@ using System.IO;
 using System.Threading;
 using System.Net;
 using System.Configuration;
+using Proxmulator.Forms.UserControls;
+using System.Windows.Forms;
 
 namespace Proxmulator
 {
@@ -16,9 +18,8 @@ namespace Proxmulator
         [STAThread]
         public static void Main(string[] args)
         {
-            
             var form = new MainForm();
-            form.ShowDialog();
+            Application.Run(form);
         }
     }
 }

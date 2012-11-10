@@ -23,10 +23,10 @@ namespace Proxmulator.Core
             ProjectInstance project = arr[0] as ProjectInstance;
             MessageInfo msg = arr[1] as MessageInfo;
 
-            project.Received.Add(msg);
-
             var opeation = msg.Operation;
             var steps = project.Project.Steps.Where(s => s.Sent == false);
+
+            var triggerFire = false;
 
             while (true)
             {
@@ -35,31 +35,29 @@ namespace Proxmulator.Core
                 if (nextStep == null)
                     break;
 
-                if (nextStep.Trigger == TriggerType.None)
-                {
-                   var sent = Messaging.SendStep(nextStep);
-                   nextStep.Sent = true;
-                   project.MessagesSent.Add(sent);
-                   _form.UpdateStep(nextStep);
-                    
-                }
-                else if (nextStep.Trigger == TriggerType.Operation)
-                {
-                    if (nextStep.isTriggerOperation(msg))
-                    {
-                       var sent =  Messaging.SendStep(nextStep, msg.NPU);
-                       nextStep.Sent = true;
-                       project.MessagesSent.Add(sent);
-                       _form.UpdateStep(nextStep);
-                    }
-                    else
-                    {
-                        break;
-                    }
+                var trigger = nextStep.Trigger;
 
+                if (trigger.RunTrigger(msg, project.Received, triggerFire))
+                {
+                    var npu = trigger.NpuToUse;
+                    var sent = Messaging.SendStep(nextStep, npu);
+                    nextStep.Sent = true;
+                    project.MessagesSent.Add(sent);
+                    _form.UpdateStep(nextStep);
+                    
+                    triggerFire = true;
                 }
+                else
+                {
+                    break;
+                }
+
             }
 
+            if (triggerFire)
+            {
+                project.Received.Add(msg);
+            }
 
 
 

@@ -9,7 +9,26 @@ using System.Xml;
 
 namespace Proxmulator.Entities
 {
+    public class SoapAction
+    {
+        public string InterfaceToInvoke { get; set; }
+        public string Operation { get; set; }
+        public string Action { get; set; }
 
+
+        public SoapAction()
+        {
+
+        }
+
+        public SoapAction(string inter, string oper, string action){
+            this.InterfaceToInvoke = inter;
+            this.Operation = oper;
+            this.Action = action;
+
+        }
+
+    }
   
 
     public class XmlConfiguration
@@ -19,7 +38,7 @@ namespace Proxmulator.Entities
         
         public List<OperationName> OperationNames { get; set; }
         public List<DBConnection> Connections { get; set; }
-        public List<KeyValueInfo> SoapActions { get; set; }
+        public List<SoapAction> SoapActions { get; set; }
         public List<KeyValueInfo> Urls { get; set; }
 
         public string IgnoreOperations { get; set; }
@@ -29,7 +48,7 @@ namespace Proxmulator.Entities
             OperationNames = new List<OperationName>();
             Connections = new List<DBConnection>();
             Urls = new List<KeyValueInfo>();
-            SoapActions = new List<KeyValueInfo>();
+            SoapActions = new List<SoapAction>();
         }
     }
 
@@ -43,7 +62,7 @@ namespace Proxmulator.Entities
         public static string IgnoreOperations { get; set; }
 
         public static List<KeyValueInfo> Urls { get; set; }
-        public static List<KeyValueInfo> SoapActions { get; set; }
+        public static List<SoapAction> SoapActions { get; set; }
 
         static Configuration()
         {
@@ -70,7 +89,7 @@ namespace Proxmulator.Entities
                 OperationNames = new List<OperationName>();
                 Connections = new List<DBConnection>();
                 Urls = new List<KeyValueInfo>();
-                SoapActions = new List<KeyValueInfo>();
+                SoapActions = new List<SoapAction>();
 
             }
             else

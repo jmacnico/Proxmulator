@@ -47,7 +47,7 @@ namespace Proxmulator.Entities
 
         public static string GetProjectDirectory()
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "Projects Saved");
+            var path = Path.Combine("C:\\", "Proxmulator", "Projects Saved");
 
             if (!Directory.Exists(path))
             {

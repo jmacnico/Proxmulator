@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace Proxmulator.Core
 {
-    public  class Processer
+    public class Processer
     {
         private ConcurrentQueue<MessageInfo> _Queue;
         public IProcesser _processSignals;
@@ -34,14 +34,14 @@ namespace Proxmulator.Core
         {
             MessageInfo msg = null;
 
-            while(true){
-                if(_Queue.TryDequeue(out msg))
+            while (true)
+            {
+                if (_Queue.TryDequeue(out msg))
                     return msg;
 
                 Thread.Sleep(100);
             }
 
-            return msg;
         }
 
 
@@ -58,9 +58,7 @@ namespace Proxmulator.Core
                     var thread = new Thread(_processSignals.ProcessRequest);
                     thread.Start(msg);
                 }
-
-
-                if (_form != null && _form.ProjectInstance != null)
+                else if (_form != null && _form.ProjectInstance != null && _form.ProjectInstance.Active)
                 {
                     if (_form.ProjectInstance.Project.BusinessId == businessId)
                     {

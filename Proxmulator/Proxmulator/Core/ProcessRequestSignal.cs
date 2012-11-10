@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml;
 using System.Net;
 using Proxmulator.Entities;
+using Proxmulator.Extras;
 
 namespace Proxmulator.Core
 {

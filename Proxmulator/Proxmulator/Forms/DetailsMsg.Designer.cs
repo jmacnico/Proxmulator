@@ -30,9 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.xmlSend = new XmlEditor.XmlViewer();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tbRaw = new System.Windows.Forms.TextBox();
-            this.xmlSend = new XmlEditor.XmlViewer();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -60,6 +60,14 @@
             this.tabPage1.Text = "Xml";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // xmlSend
+            // 
+            this.xmlSend.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xmlSend.Location = new System.Drawing.Point(3, 3);
+            this.xmlSend.Name = "xmlSend";
+            this.xmlSend.Size = new System.Drawing.Size(978, 541);
+            this.xmlSend.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tbRaw);
@@ -82,14 +90,6 @@
             this.tbRaw.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tbRaw.Size = new System.Drawing.Size(978, 541);
             this.tbRaw.TabIndex = 0;
-            // 
-            // xmlSend
-            // 
-            this.xmlSend.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xmlSend.Location = new System.Drawing.Point(3, 3);
-            this.xmlSend.Name = "xmlSend";
-            this.xmlSend.Size = new System.Drawing.Size(978, 541);
-            this.xmlSend.TabIndex = 0;
             // 
             // DetailsMsg
             // 

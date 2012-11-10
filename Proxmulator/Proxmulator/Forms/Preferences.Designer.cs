@@ -39,23 +39,24 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Operation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrettyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgSoapAction = new System.Windows.Forms.DataGridView();
-            this.Interface = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoapAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgUrls = new System.Windows.Forms.DataGridView();
             this.Url_Interfaces = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Urls_Url = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Interface = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Oper = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoapAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSoapAction)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUrls)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,17 +165,6 @@
             this.tabPage1.Text = "Operations Description";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.dgSoapAction);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(965, 401);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Soap Actions";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -199,6 +189,30 @@
             this.PrettyName.Name = "PrettyName";
             this.PrettyName.Width = 400;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dgSoapAction);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(965, 401);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Soap Actions";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dgSoapAction
+            // 
+            this.dgSoapAction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSoapAction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Interface,
+            this.Oper,
+            this.SoapAction});
+            this.dgSoapAction.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgSoapAction.Location = new System.Drawing.Point(3, 3);
+            this.dgSoapAction.Name = "dgSoapAction";
+            this.dgSoapAction.Size = new System.Drawing.Size(959, 395);
+            this.dgSoapAction.TabIndex = 0;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dgUrls);
@@ -208,30 +222,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Urls";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dgSoapAction
-            // 
-            this.dgSoapAction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSoapAction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Interface,
-            this.SoapAction});
-            this.dgSoapAction.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgSoapAction.Location = new System.Drawing.Point(3, 3);
-            this.dgSoapAction.Name = "dgSoapAction";
-            this.dgSoapAction.Size = new System.Drawing.Size(959, 395);
-            this.dgSoapAction.TabIndex = 0;
-            // 
-            // Interface
-            // 
-            this.Interface.HeaderText = "Interface";
-            this.Interface.Name = "Interface";
-            this.Interface.Width = 300;
-            // 
-            // SoapAction
-            // 
-            this.SoapAction.HeaderText = "SoapAction";
-            this.SoapAction.Name = "SoapAction";
-            this.SoapAction.Width = 500;
             // 
             // dgUrls
             // 
@@ -257,6 +247,24 @@
             this.Urls_Url.Name = "Urls_Url";
             this.Urls_Url.Width = 500;
             // 
+            // Interface
+            // 
+            this.Interface.HeaderText = "Interface";
+            this.Interface.Name = "Interface";
+            this.Interface.Width = 300;
+            // 
+            // Oper
+            // 
+            this.Oper.HeaderText = "Operation";
+            this.Oper.Name = "Oper";
+            this.Oper.Width = 150;
+            // 
+            // SoapAction
+            // 
+            this.SoapAction.HeaderText = "SoapAction";
+            this.SoapAction.Name = "SoapAction";
+            this.SoapAction.Width = 500;
+            // 
             // Preferences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,10 +286,10 @@
             this.Text = "Preferences";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPage3.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgSoapAction)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgUrls)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -307,10 +315,11 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dgSoapAction;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Interface;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoapAction;
         private System.Windows.Forms.DataGridView dgUrls;
         private System.Windows.Forms.DataGridViewTextBoxColumn Url_Interfaces;
         private System.Windows.Forms.DataGridViewTextBoxColumn Urls_Url;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Interface;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Oper;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoapAction;
     }
 }

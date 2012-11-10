@@ -2,12 +2,12 @@
 {
     partial class XmlViewer
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,43 +20,41 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtEditor = new ICSharpCode.TextEditor.TextEditorControl();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // txtEditor
+            // webBrowser1
             // 
-            this.txtEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEditor.IndentStyle = ICSharpCode.TextEditor.Document.IndentStyle.Auto;
-            this.txtEditor.IsIconBarVisible = false;
-            this.txtEditor.Location = new System.Drawing.Point(0, 0);
-            this.txtEditor.Name = "txtEditor";
-            this.txtEditor.ShowEOLMarkers = true;
-            this.txtEditor.ShowInvalidLines = false;
-            this.txtEditor.ShowMatchingBracket = false;
-            this.txtEditor.ShowTabs = true;
-            this.txtEditor.ShowVRuler = true;
-            this.txtEditor.Size = new System.Drawing.Size(441, 379);
-            this.txtEditor.TabIndex = 0;
+            this.webBrowser1.AllowNavigation = false;
+            this.webBrowser1.AllowWebBrowserDrop = false;
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(508, 420);
+            this.webBrowser1.TabIndex = 0;
             // 
             // XmlViewer
             // 
-            this.Controls.Add(this.txtEditor);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.webBrowser1);
             this.Name = "XmlViewer";
-            this.Size = new System.Drawing.Size(441, 379);
+            this.Size = new System.Drawing.Size(508, 420);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private ICSharpCode.TextEditor.TextEditorControl txtEditor;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

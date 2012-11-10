@@ -36,8 +36,8 @@
             this.btnSend = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxNpu = new System.Windows.Forms.CheckBox();
-            this.xmlSent = new XmlEditor.XmlViewer();
-            this.xmlReceived = new XmlEditor.XmlViewer();
+            this.xmlSent = new XmlEditor.XMLEditor();
+            this.xmlReceived = new XmlEditor.XMLEditor();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -171,7 +171,7 @@
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cbxNpu;
-        private XmlEditor.XmlViewer xmlSent;
-        private XmlEditor.XmlViewer xmlReceived;
+        private XmlEditor.XMLEditor xmlSent;
+        private XmlEditor.XMLEditor xmlReceived;
     }
 }
