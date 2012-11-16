@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Proxmulator.Entities;
 using Proxmulator.Extras;
+using Proxmulator.Entities.Interfaces;
 
 namespace Proxmulator.Forms.UserControls
 {
@@ -89,8 +90,21 @@ namespace Proxmulator.Forms.UserControls
                 _step.Message.Payload = xmlEditor.Text;
                 _step.Message.InterfaceToInvoke = tbInterface.Text;
                 _step.Message.Operation = tbOperation.Text;
-                _step.Trigger.OnlyOneUse = cbOnlyOneUse.Checked;
 
+                var triggerType = (TriggerType)Enum.Parse(typeof(TriggerType), cbStepTrigger.SelectedItem.ToString());
+
+                if (_step.Trigger.Type != triggerType && triggerType != TriggerType.Custom)
+                {
+                    if (triggerType == TriggerType.None)
+                    {
+                        _step.Trigger = new TriggerNone(_step.Message);
+                    }
+                    else if (triggerType == TriggerType.Operation)
+                    {
+                        _step.Trigger = new TriggerOperation(_step.Message);
+                    }
+                }
+                
 
                 this.Save(_step, null);
             }

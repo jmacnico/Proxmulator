@@ -46,9 +46,7 @@ namespace Proxmulator.Forms
         private void LoadCommonXPath(ComboBox cb)
         {
 
-
         }
-
 
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -71,14 +69,9 @@ namespace Proxmulator.Forms
                 }
             }
 
-
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
-
             this.Close();
         }
-
-
-
 
 
         private ConditionControl FindConditionControlByName(string name)
@@ -93,10 +86,6 @@ namespace Proxmulator.Forms
 
             return cb;
         }
-
-
-
-
 
 
     }

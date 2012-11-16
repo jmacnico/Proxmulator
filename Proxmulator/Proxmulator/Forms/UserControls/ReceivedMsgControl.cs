@@ -106,7 +106,27 @@ namespace Proxmulator.Forms.UserControls
 
         private void returnGenericReplyI2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var msg = cmsLbxMessages.Tag as MessageInfo;
 
+            if (msg != null)
+            {
+                try
+                {
+                    var result = Messaging.ReplyI2(msg);
+
+                    if (result.Status != MessageStatusEnum.OK)
+                    {
+                        MessageBox.Show("Fail: " + result.Received);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                    Logger.Exception(ex, "Sending E0");
+
+                }
+            }
         }
 
         private void genericReplyErrorToolStripMenuItem_Click(object sender, EventArgs e)

@@ -12,6 +12,13 @@ namespace Proxmulator.Entities
         public string Name { get; set; }
         public string BusinessId { get; set; }
         public List<TestStep> Steps { get; set; }
+        internal string CurrentPath { get; set; }
+
+
+        public Project()
+        {
+            Steps = new List<TestStep>();
+        }
 
 
         public void Save()
@@ -32,16 +39,24 @@ namespace Proxmulator.Entities
 
             reader.Close();
 
-            return obj as Project;
+            var proj = obj as Project;
+            if (proj != null)
+                proj.CurrentPath = file;
+
+
+            return proj;
         }
 
 
         private string GetPath()
         {
-            var path = GetProjectDirectory();
+            if (CurrentPath == null)
+            {
+                var path = GetProjectDirectory();
+                CurrentPath = Path.Combine(path, this.BusinessId + ".xml");
+            }
 
-
-            return Path.Combine(path, this.BusinessId + ".xml");
+            return CurrentPath;
         }
 
 

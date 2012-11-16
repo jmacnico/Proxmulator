@@ -42,7 +42,8 @@ namespace Proxmulator.Entities
         public List<KeyValueInfo> Urls { get; set; }
 
         public string IgnoreOperations { get; set; }
-        
+        public string IgnoreChunks { get; set; }
+
         public XmlConfiguration()
         {
             OperationNames = new List<OperationName>();
@@ -60,6 +61,7 @@ namespace Proxmulator.Entities
         public static List<OperationName> OperationNames { get; set; }
         public static List<DBConnection> Connections { get; set; }
         public static string IgnoreOperations { get; set; }
+        public static string IgnoreChunks { get; set; }
 
         public static List<KeyValueInfo> Urls { get; set; }
         public static List<SoapAction> SoapActions { get; set; }
@@ -101,6 +103,7 @@ namespace Proxmulator.Entities
                 IgnoreOperations = conf.IgnoreOperations;
                 Urls = conf.Urls;
                 SoapActions = conf.SoapActions;
+                IgnoreChunks = conf.IgnoreChunks;
             }
         }
 
@@ -118,6 +121,7 @@ namespace Proxmulator.Entities
             xml.IgnoreOperations = IgnoreOperations;
             xml.SoapActions = SoapActions;
             xml.Urls = Urls;
+            xml.IgnoreChunks = IgnoreChunks;
 
             serializer.Serialize(writer, xml);
             writer.Close();

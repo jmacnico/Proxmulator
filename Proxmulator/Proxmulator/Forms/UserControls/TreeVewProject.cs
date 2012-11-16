@@ -18,6 +18,7 @@ namespace Proxmulator.Forms.UserControls
         public event EventHandler StopProject;
         public event EventHandler EditProject;
         public event EventHandler MsgSent;
+        public event EventHandler LoadProjectEvent;
 
         private bool _running = true;
 
@@ -28,6 +29,7 @@ namespace Proxmulator.Forms.UserControls
         {
             InitializeComponent();
             LoadImages();
+            openFileDialog1.InitialDirectory = Project.GetProjectDirectory();
         }
 
         private void LoadImages()
@@ -60,16 +62,25 @@ namespace Proxmulator.Forms.UserControls
         public void LoadProject(ProjectInstance proj)
         {
             _projInstance = proj;
-            _projInstance.Active = true;
             btnEdit.Enabled = true;
             btnRun.Enabled = true;
+            btnRun.Image = global::Proxmulator.Properties.Resources.media_pause;
+            btnRun.Text = "Pause";
+            _running = true;
+
             UpdateProjectTree();
         }
 
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if (this.LoadProjectEvent != null)
+                {
+                    this.LoadProjectEvent(openFileDialog1.FileName, null);
+                }
+            }
         }
 
         private void btnRun_Click(object sender, EventArgs e)
@@ -264,7 +275,7 @@ namespace Proxmulator.Forms.UserControls
 
             foreach (var step in _projInstance.Project.Steps)
             {
-                var n = new TreeNode(step.Message.Name);
+                var n = new TreeNode(step.Name);
                 n.Tag = step;
                 n.ImageIndex = 0;
                 n.SelectedImageIndex = 0;
@@ -274,7 +285,7 @@ namespace Proxmulator.Forms.UserControls
 
                 foreach (var r in responses)
                 {
-                    var nResponse = new TreeNode("Response [" + r.Date.ToString("hh24:MM:sss") + "]");
+                    var nResponse = new TreeNode("Response [" + r.Date.ToString("HH:mm:sss") + "]");
                     nResponse.Tag = r;
 
                     if (r.Status == MessageStatusEnum.OK)

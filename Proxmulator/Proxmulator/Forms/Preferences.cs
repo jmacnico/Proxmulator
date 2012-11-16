@@ -27,6 +27,14 @@ namespace Proxmulator.Forms
             tbPort.Text = Configuration.ListenerPort.ToString();
             tbUrl.Text = Configuration.UrlReturn;
             tbIgonerOper.Text = Configuration.IgnoreOperations;
+            if (!string.IsNullOrEmpty(Configuration.IgnoreChunks))
+            {
+                tbChunks.Text = Configuration.IgnoreChunks;
+            }
+            else
+            {
+                tbChunks.Text = "818,78a,6e5,f9c,465";
+            }
 
             foreach (var ope in Configuration.OperationNames)
             {
@@ -50,6 +58,7 @@ namespace Proxmulator.Forms
             Configuration.UrlReturn = tbUrl.Text;
             Configuration.ListenerPort = int.Parse(tbPort.Text);
             Configuration.IgnoreOperations = tbIgonerOper.Text;
+            Configuration.IgnoreChunks = tbChunks.Text;
             
             Configuration.OperationNames.Clear();
             

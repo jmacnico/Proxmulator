@@ -50,13 +50,13 @@
             this.lblStatusBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.treeVewProject1 = new Proxmulator.Forms.UserControls.TreeVewProject();
+            this.receivedMsgControl1 = new Proxmulator.Forms.UserControls.ReceivedMsgControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabLog = new System.Windows.Forms.TabPage();
             this.tbLog = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.treeVewProject1 = new Proxmulator.Forms.UserControls.TreeVewProject();
-            this.receivedMsgControl1 = new Proxmulator.Forms.UserControls.ReceivedMsgControl();
             this.menuStrip1.SuspendLayout();
             this.statusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -213,7 +213,7 @@
             this.toolStripProgressBar1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(150, 16);
-            this.toolStripProgressBar1.Step = 20;
+            this.toolStripProgressBar1.Step = 5;
             // 
             // splitContainer1
             // 
@@ -235,6 +235,30 @@
             this.splitContainer1.Size = new System.Drawing.Size(1016, 688);
             this.splitContainer1.SplitterDistance = 659;
             this.splitContainer1.TabIndex = 8;
+            // 
+            // treeVewProject1
+            // 
+            this.treeVewProject1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeVewProject1.Location = new System.Drawing.Point(0, 0);
+            this.treeVewProject1.Name = "treeVewProject1";
+            this.treeVewProject1.Size = new System.Drawing.Size(256, 655);
+            this.treeVewProject1.TabIndex = 5;
+            this.treeVewProject1.StartProject += new System.EventHandler(this.treeVewProject1_StartProject);
+            this.treeVewProject1.StopProject += new System.EventHandler(this.treeVewProject1_StopProject);
+            this.treeVewProject1.EditProject += new System.EventHandler(this.treeVewProject1_EditProject);
+            this.treeVewProject1.MsgSent += new System.EventHandler(this.treeVewProject1_MsgSent);
+            this.treeVewProject1.LoadProjectEvent += new System.EventHandler(this.treeVewProject1_LoadProjectEvent);
+            // 
+            // receivedMsgControl1
+            // 
+            this.receivedMsgControl1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.receivedMsgControl1.Location = new System.Drawing.Point(757, 0);
+            this.receivedMsgControl1.Name = "receivedMsgControl1";
+            this.receivedMsgControl1.Size = new System.Drawing.Size(255, 655);
+            this.receivedMsgControl1.TabIndex = 4;
+            this.receivedMsgControl1.StartClick += new System.EventHandler(this.receivedMsgControl1_StartClick);
+            this.receivedMsgControl1.StopClick += new System.EventHandler(this.receivedMsgControl1_StopClick);
+            this.receivedMsgControl1.NewStatusBarMsg += new System.EventHandler(this.receivedMsgControl1_NewStatusBarMsg);
             // 
             // tabControl1
             // 
@@ -279,31 +303,8 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 300;
+            this.timer1.Interval = 250;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // treeVewProject1
-            // 
-            this.treeVewProject1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.treeVewProject1.Location = new System.Drawing.Point(0, 0);
-            this.treeVewProject1.Name = "treeVewProject1";
-            this.treeVewProject1.Size = new System.Drawing.Size(256, 655);
-            this.treeVewProject1.TabIndex = 5;
-            this.treeVewProject1.StartProject += new System.EventHandler(this.treeVewProject1_StartProject);
-            this.treeVewProject1.StopProject += new System.EventHandler(this.treeVewProject1_StopProject);
-            this.treeVewProject1.EditProject += new System.EventHandler(this.treeVewProject1_EditProject);
-            this.treeVewProject1.MsgSent += new System.EventHandler(this.treeVewProject1_MsgSent);
-            // 
-            // receivedMsgControl1
-            // 
-            this.receivedMsgControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.receivedMsgControl1.Location = new System.Drawing.Point(757, 0);
-            this.receivedMsgControl1.Name = "receivedMsgControl1";
-            this.receivedMsgControl1.Size = new System.Drawing.Size(255, 655);
-            this.receivedMsgControl1.TabIndex = 4;
-            this.receivedMsgControl1.StartClick += new System.EventHandler(this.receivedMsgControl1_StartClick);
-            this.receivedMsgControl1.StopClick += new System.EventHandler(this.receivedMsgControl1_StopClick);
-            this.receivedMsgControl1.NewStatusBarMsg += new System.EventHandler(this.receivedMsgControl1_NewStatusBarMsg);
             // 
             // MainForm
             // 

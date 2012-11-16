@@ -7,6 +7,7 @@ using System.Net;
 using System.IO;
 using System.Xml;
 
+
 namespace Proxmulator.Core
 {
     public class CommunicationWS
@@ -116,19 +117,30 @@ namespace Proxmulator.Core
                 index += 4;
             }
 
+            var conf = Configuration.IgnoreChunks;
+            var charToReplace = new string[0];
 
-            var charToReplace = new string[] { "818", "78a", "6e5", "f9c", "\r", "\n" };
-
+            if (conf != null)
+            {
+                charToReplace = conf.Split(',');
+            }
+            else
+            {
+                charToReplace = new string[]{"818", "78a", "6e5", "f9c", "465"};
+            }
 
             str = str.Remove(0, index);
             str = str.TrimEnd('\r', '\n', '0');
-
             for (int i = 0; i < charToReplace.Length; i++)
             {
-                str = str.Replace(charToReplace[i], "");
 
+                var tag = charToReplace[i];
+                tag  += "\r\n";
+                str = str.Replace(tag, "");
             }
 
+            str = str.Replace("\r", "");
+            str = str.Replace("\n", "");
 
             var end = str.IndexOf("</soapenv:Envelope>");
 

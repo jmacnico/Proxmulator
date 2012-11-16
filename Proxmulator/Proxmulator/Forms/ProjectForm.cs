@@ -153,6 +153,9 @@ namespace Proxmulator.Forms
         {
             if (_project != null)
             {
+                _project.BusinessId = tbReqNumber.Text;
+                _project.Name = tbName.Text;
+
                 _project.Save();
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
             }

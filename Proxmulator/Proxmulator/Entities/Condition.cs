@@ -25,6 +25,7 @@ namespace Proxmulator.Entities
 
         public Condition(string valueToCompare, string xpath, EnumCondition comp)
         {
+            Active = true;
             ValueToCompare = valueToCompare;
             ValueLocation = xpath;
             Comparator = comp;

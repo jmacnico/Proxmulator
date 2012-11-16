@@ -58,7 +58,7 @@ namespace Proxmulator.Core
                     var thread = new Thread(_processSignals.ProcessRequest);
                     thread.Start(msg);
                 }
-                else if (_form != null && _form.ProjectInstance != null && _form.ProjectInstance.Active)
+                else if (_form != null && _form.ProjectInstance != null && _form.ProjectInstance.Active == true)
                 {
                     if (_form.ProjectInstance.Project.BusinessId == businessId)
                     {

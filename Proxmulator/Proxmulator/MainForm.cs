@@ -96,7 +96,7 @@ namespace Proxmulator
             projectsToolStripMenuItem.DropDownItems.Clear();
 
             var path = Project.GetProjectDirectory();
-            var files = Directory.GetFiles(path, "*.xml");
+            var files = Directory.GetFiles(path, "*.xml", SearchOption.AllDirectories);
 
             foreach (var f in files)
             {
@@ -115,7 +115,7 @@ namespace Proxmulator
             var item = sender as ToolStripMenuItem;
             var path = Project.GetProjectDirectory();
 
-            var file = Directory.GetFiles(path, item.Text + ".xml");
+            var file = Directory.GetFiles(path, item.Text + ".xml", SearchOption.AllDirectories);
 
             LoadProject(file[0]);
 
@@ -127,6 +127,7 @@ namespace Proxmulator
             _currentProject = new ProjectInstance(proj);
 
             editToolStripMenuItem.Enabled = true;
+            _currentProject.Active = true;
 
             treeVewProject1.LoadProject(_currentProject);
 
@@ -199,13 +200,11 @@ namespace Proxmulator
                 var r = form.ShowDialog();
                 if (r == System.Windows.Forms.DialogResult.OK)
                 {
-                    var name = _currentProject.Project.Name;
+                    var path = _currentProject.Project.CurrentPath;
                     _currentProject = null;
                     LoadProjects();
 
-                    var path = Project.GetProjectDirectory();
-                    var file = Directory.GetFiles(path, name + ".xml");
-                    LoadProject(file[0]);
+                    LoadProject(path);
 
                 }
             }
@@ -300,7 +299,18 @@ namespace Proxmulator
 
         }
 
-        #endregion
+       
 
+        private void treeVewProject1_LoadProjectEvent(object sender, EventArgs e)
+        {
+
+            var path = sender as string;
+
+            LoadProject(path);
+
+        }
+
+
+        #endregion
     }
 }

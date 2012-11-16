@@ -35,12 +35,13 @@
             this.sendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMessageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.markAsSentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.startFromHereToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnRun = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.cmsTVProject.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,8 +74,8 @@
             this.sendToolStripMenuItem,
             this.editMessageToolStripMenuItem,
             this.toolStripSeparator1,
-            this.toolStripSeparator2,
             this.markAsSentToolStripMenuItem,
+            this.toolStripSeparator2,
             this.startFromHereToolStripMenuItem});
             this.cmsTVProject.Name = "cmsTVProject";
             this.cmsTVProject.Size = new System.Drawing.Size(149, 104);
@@ -98,17 +99,17 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
-            // 
             // markAsSentToolStripMenuItem
             // 
             this.markAsSentToolStripMenuItem.Name = "markAsSentToolStripMenuItem";
             this.markAsSentToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.markAsSentToolStripMenuItem.Text = "Bypass";
             this.markAsSentToolStripMenuItem.Click += new System.EventHandler(this.markAsSentToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
             // 
             // startFromHereToolStripMenuItem
             // 
@@ -154,6 +155,13 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.DefaultExt = "xml";
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "XML files|*.xml";
+            this.openFileDialog1.RestoreDirectory = true;
+            // 
             // TreeVewProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,5 +191,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem startFromHereToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
